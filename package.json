@@ -1,0 +1,23 @@
+{
+  "name": "arcturus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm run install:frontend && npm run install:backend",
+    "install:backend": "cd backend && npm install --include=dev",
+    "install:frontend": "cd frontend && npm install --include=dev",
+    "build": "cd frontend && npx vite build",
+    "start": "cd backend && node server.js",
+    "dev": "concurrently \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:frontend": "cd frontend && npx vite",
+    "dev:backend": "cd backend && npx nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
